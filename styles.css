@@ -49,18 +49,18 @@ a:hover {
 
 p {color: black! important;}
 ul {
+    list-style: none;
+    padding-left: 0; 
     margin: 1;
-    padding: auto;
     font-family: Arial, sans-serif;
     font-size: 16px;
     color: #333333;
 }
-ol {
-    margin: auto;
-    padding: auto;
-    font-family: Impact, sans-serif;
-    font-size: 16px;
-    color: midnightblue;
+
+ul[type="I"] li::before {
+    content: "➔ "; 
+    color: red; 
+    font-weight: bold; 
 }
 dl {
     margin: 0;
