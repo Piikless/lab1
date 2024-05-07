@@ -17,6 +17,7 @@
     <p>Наші поради допоможуть вам обрати найкращий варіант для вашого відпочинку та зробити його безпечним та незабутнім.</p>
     <p>Не забудьте також переглянути наші рекомендації щодо підготовки до активного відпочинку та безпеки під час подорожі. 
         Ми завжди раді допомогти вам з плануванням вашого наступного пригодницького відпочинку!</p>
+       
         <style>
             dl > dt {
             color: navy;
@@ -69,7 +70,31 @@
                 <td><img src="images/image9.jpg" width="100" height="100" alt="Картинка"></td>
             </tr>
         </table>
+        <script>
+            const terms = document.querySelectorAll("dt, dd");
+            
+            terms.forEach((term) => {
+                term.style.color = "green";
+            });
+            </script>
     <a href="advices.html">Перейти на сторінку з порадами для туристів</a>
     <img src="images/image1.jpg" width="200" height="200" alt="Картинка">
+    <input type="text" id="string1" placeholder="Перший рядок">
+<input type="text" id="string2" placeholder="Другий рядок">
+<button onclick="compareStringsAndAlert()">Порівняти</button>
+<script>
+    function compareStringsAndAlert() {
+        const str1 = document.getElementById("string1").value;
+        const str2 = document.getElementById("string2").value;
+
+        if (str1 > str2) {
+            alert(`${str1} більше за ${str2}`);
+        } else if (str1 < str2) {
+            alert(`${str2} більше за ${str1}`);
+        } else {
+            alert(`Рядки ${str1} та ${str2} рівні`);
+        }
+    }
+</script>
 </body>
 </html>

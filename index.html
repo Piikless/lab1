@@ -9,8 +9,18 @@
 <body>
     <style>
         A {color: red; text-decoration: none;}
+        DIV#floating{
+        float: left;
+        }
         </style>
+        <script>
+         let age = prompt('Плануєте подорож?', "так");
+         alert('Ми допоможемо');
+         </script>
     <h1   class="title">Ласкаво просимо на головну сторінку туристичного сайту</h1>
+    <button onclick="touristDialog()">Розпочати діалог</button>
+    <script src="dialog.js" defer></script>
+    <script src="nextsite.js" defer></script>
     <p>Вітаємо на головній сторінці нашого туристичного сайту. <br>
         Тут ви знайдете інформацію про <b>різні <span style = "font-size: 50%; position: relative; top: - 2em;">туристичні напрямки</span> , 
         види активного туризму, а також корисні поради для туристів</b>. 
@@ -27,6 +37,19 @@
         допомогти вам з плануванням вашої майбутньої подорожі. 
         Ласкаво просимо до нашого туристичного сайту!</p>
     <a href="destinations.html">Перейти на сторінку про популярні туристичні напрямки</a>
+    <h3>Інформація про розробника</h3>
+    <div id="developer-info"></div>
+    <script>
+        function showDeveloperInfo(lastName, firstName, position = "розробник") {
+            const infoContainer = document.getElementById("developer-info");
+            infoContainer.innerHTML = `
+                <p><strong>Прізвище:</strong> ${lastName}</p>
+                <p><strong>Ім'я:</strong> ${firstName}</p>
+                <p><strong>Посада:</strong> ${position}</p>
+            `;
+        }
+        showDeveloperInfo("Ткаченко", "Олеся");
+    </script>
 </body>
 </html>
 
