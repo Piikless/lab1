@@ -7,6 +7,54 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+    <div class="menu">
+        <button data-method="showHome">Головна</button>
+        <button data-method="showTours">Тури</button>
+        <button data-method="showAbout">Про нас</button>
+        <button data-method="showContact">Контакти</button>
+    </div>
+
+    <script>
+        document.querySelector('.menu').addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                const method = event.target.getAttribute('data-method');
+                if (method && typeof window[method] === 'function') {
+                    window[method]();
+                }
+            }
+        });
+
+        function showHome() {
+            alert('Показати Головну сторінку');
+        }
+
+        function showTours() {
+            alert('Показати Тури');
+        }
+
+        function showAbout() {
+            alert('Показати Про нас');
+        }
+
+        function showContact() {
+            alert('Показати Контакти');
+        }
+    </script>
+    <button data-toggle-id="subscribe-mail">
+        Зареєструватися
+        </button>
+        <form id="subscribe-mail" hidden>
+        Ваша пошта: <input type="email">
+        </form>
+        <script>
+        document.addEventListener('click', function(event) {
+        let id = event.target.dataset.toggleId;
+        if (!id) return;
+        let elem = document.getElementById(id);
+        elem.hidden = !elem.hidden;
+        });
+        </script>
+        
     <style>
         A {color: red; text-decoration: none;}
         DIV#floating{
@@ -40,7 +88,7 @@
     <h3>Інформація про розробника</h3>
     <div id="developer-info"></div>
     <script>
-        function showDeveloperInfo(lastName, firstName, position = "розробник") {
+        function showDeveloperInfo(lastName, firstName, position) {
             const infoContainer = document.getElementById("developer-info");
             infoContainer.innerHTML = `
                 <p><strong>Прізвище:</strong> ${lastName}</p>

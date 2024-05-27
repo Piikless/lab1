@@ -11,6 +11,31 @@
     <style>
         A {color: red; text-decoration: none;}
         </style>
+        <input id="elem" type="button" value="Натисни"/>
+        <script>
+         function handler1() {
+         alert('Ми можемо допомогти з вибором');
+         };
+         function handler2() {
+         alert('Організація - на нас, на вас - відпочинок');
+         }
+         elem.onclick = () => alert("Вже обрали тур?");
+         elem.addEventListener("click", handler1); 
+         elem.addEventListener("click", handler2); 
+         elem.removeEventListener("click", handler1);
+        elem.removeEventListener("click", handler2);
+        </script>
+
+        <button id="weather">Погода</button>
+        <script>
+        weather.addEventListener('click', {
+        handleEvent(event) {
+        alert(event.type + " on " + event.currentTarget);
+        }
+        });
+        </script>
+        
+        
     <h1 class="title">Види активного туризму</h1>
     <p>Активний туризм - це не просто відпочинок, а цілий спосіб життя. На цій сторінці ми розповімо вам про різні види 
         активного відпочинку, від піших прогулянок до екстремальних видів спорту. Оберіть свій варіант та вирушайте у пригоду!</p>
@@ -28,7 +53,7 @@
              }
 
         </style>
-        <dl>
+        <dl id="list"  onclick="alert('Обробник!')">
             <dt>Гірський туризм</dt>
             <dd>це подорож у гори, пов'язана із проходженням складних ділянок гірського рельєфу</dd>
             <dt>Лижний туризм</dt>
@@ -40,6 +65,23 @@
             <dt>Автомототуризм</dt>
             <dd>це самодіяльні туристські подорожі на автомобілях, мотоциклах, мопедах</dd>
         </dl>
+        <script>
+            list.addEventListener('click', function(event) {
+                if (event.target.tagName === 'DT' || event.target.tagName === 'DD') {
+                    if (event.target.classList.contains('highlight')) {
+                event.target.classList.remove('highlight');
+            } else {
+                event.target.classList.add('highlight');
+            }
+                }
+            });
+        </script>
+        
+        <style>
+            .highlight {
+                background-color: yellow;
+            }
+        </style>
         <table border="1" cellspacing="5" cellpadding="10" align="center">
             <caption>Види активного туризму</caption>
             <tr>
