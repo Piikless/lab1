@@ -120,7 +120,38 @@
             });
             </script>
     <a href="advices.html">Перейти на сторінку з порадами для туристів</a>
-    <img src="images/image1.jpg" width="200" height="200" alt="Картинка">
+    <img id="draggable" src="images/image1.jpg" width="200" height="200" alt="Картинка">
+    <style>
+        #draggable {
+            position: absolute;
+            cursor: grab;
+        }
+    </style>
+    <script>
+        const draggable = document.getElementById('draggable');
+let isDragging = false;
+let offsetX, offsetY;
+draggable.addEventListener('mousedown', (event) => {
+    isDragging = true;
+    offsetX = event.clientX - draggable.offsetLeft;
+    offsetY = event.clientY - draggable.offsetTop;
+    draggable.style.cursor = 'grabbing';
+});
+document.addEventListener('mousemove', (event) => {
+    if (isDragging) {
+        const x = event.clientX - offsetX;
+        const y = event.clientY - offsetY;
+        draggable.style.left = `${x}px`;
+        draggable.style.top = `${y}px`;
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+    draggable.style.cursor = 'grab';
+});
+
+    </script>
     <input type="text" id="string1" placeholder="Перший рядок">
 <input type="text" id="string2" placeholder="Другий рядок">
 <button onclick="compareStringsAndAlert()">Порівняти</button>

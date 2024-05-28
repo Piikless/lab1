@@ -9,6 +9,42 @@
 </head>
 <body>
     <style>
+        .hoverable {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            background-color: lightgray;
+            transition: background-color 0.3s;
+        }
+    </style>
+    <div class="hoverable"></div>
+    <div class="hoverable"></div>
+    <div class="hoverable"></div>
+    
+    <script>
+        const hoverableElements = document.querySelectorAll('.hoverable');
+
+function handleMouseOver(event) {
+    const target = event.target;
+    target.style.backgroundColor = 'lightblue';
+}
+
+function handleMouseOut(event) {
+    const target = event.target;
+    const relatedTarget = event.relatedTarget;
+    if (relatedTarget && relatedTarget.classList.contains('hoverable')) {
+        return;
+    }
+    target.style.backgroundColor = 'lightgray';
+}
+
+hoverableElements.forEach(element => {
+    element.addEventListener('mouseover', handleMouseOver);
+    element.addEventListener('mouseout', handleMouseOut);
+});
+    </script>
+    <style>
         A {color: red; text-decoration: none;}
         </style>
     <h1 class="title">Поради для туристів</h1>
